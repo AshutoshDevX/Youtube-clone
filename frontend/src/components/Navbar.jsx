@@ -5,16 +5,18 @@ import { IoMdMic } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import { LiaPlusSolid } from "react-icons/lia";
 
-const Navbar = () => {
+export const Navbar = ({ toggle, setToggle }) => {
     return (
         <div className="bg-white flex justify-between items-center h-14 px-4 sticky top-0">
             <div className="flex h-full items-center">
                 <div className="items-center h-10 w-10 p-2">
-                    <RxHamburgerMenu className="h-full w-full block" />
+                    <RxHamburgerMenu
+                        onClick={() => setToggle(!toggle)}
+                        className="h-full w-full block" />
                 </div>
                 <div className="flex items-center p-4">
                     <FaYoutube className="text-3xl text-red-500" />
-                    <span className="text-2xl font-display">YouTube</span>
+                    <span className="text-xl font-display font-semibold">YouTube</span>
                 </div>
             </div>
             <div className="flex flex-[732px] grow-0 shrink-1 justify-center items-center gap-4 h-10">
@@ -35,12 +37,10 @@ const Navbar = () => {
                     <LiaPlusSolid className="text-2xl" />
                     <p>Create</p>
                 </div>
-                <div className="flex justify-center items-center rounded-full h-10 w-10 bg-orange-400">
+                <div className="flex justify-center items-center rounded-full h-9 w-9 bg-orange-500">
                     <p className="text-white text-xl">P</p>
                 </div>
             </div>
         </div>
     )
 }
-
-export default Navbar
