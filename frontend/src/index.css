@@ -4,6 +4,8 @@
     --font-display: "Oswald", sans-serif;
 }
 
+@plugin 'tailwind-scrollbar';
+
 * {
     @apply border-gray-300;
 }

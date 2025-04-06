@@ -12,11 +12,11 @@ export const Navbar = ({ toggle, setToggle }) => {
                 <div className="items-center h-10 w-10 p-2">
                     <RxHamburgerMenu
                         onClick={() => setToggle(!toggle)}
-                        className="h-full w-full block" />
+                        className="h-[90%] w-full block" />
                 </div>
-                <div className="flex items-center p-4">
+                <div className="flex items-center p-3">
                     <FaYoutube className="text-3xl text-red-500" />
-                    <span className="text-xl font-display font-semibold">YouTube</span>
+                    <span className="text-[21px] font-display font-[450]">YouTube</span>
                 </div>
             </div>
             <div className="flex flex-[732px] grow-0 shrink-1 justify-center items-center gap-4 h-10">

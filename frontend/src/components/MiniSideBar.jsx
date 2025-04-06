@@ -7,7 +7,7 @@ import { CgProfile } from "react-icons/cg";
 export const MiniSideBar = () => {
     return (
         <div>
-            <div className="flex flex-col fixed w-20 z-100 p-1 h-full box-border">
+            <div className="flex flex-col sticky w-20 p-1 h-full box-border">
                 <div className="flex flex-col gap-1 bg-white justify-center items-center p-5 rounded-xl hover:bg-stone-100">
                     <IoMdHome className="text-2xl" />
                     <p className="text-[10px]">Home</p>
@@ -25,7 +25,6 @@ export const MiniSideBar = () => {
                     <p className="text-[10px]">You</p>
                 </div>
             </div>
-            <div className="w-20 h-full"></div>
         </div>
 
     )
