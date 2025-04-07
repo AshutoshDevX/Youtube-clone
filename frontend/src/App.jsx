@@ -1,20 +1,29 @@
 import { Navbar } from "./components/navbar"
 import { Home } from "./pages/Home"
+import { Video } from "./pages/Video"
 import './App.css'
 import { useState } from "react"
 import { createContext } from "react"
+import { Channel } from "./pages/Channel"
+import { NotFound } from "./components/NotFound"
 import { BrowserRouter, Routes, Route } from "react-router"
-export const ToggleContext = createContext(true);
+export const ToggleContext = createContext([]);
+
 function App() {
   const [toggle, setToggle] = useState(true);
   return (
     <>
-      <Navbar toggle={toggle} setToggle={setToggle} />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<ToggleContext.Provider value={toggle}><Home /></ToggleContext.Provider>}></Route>
-        </Routes>
-      </BrowserRouter>
+      <ToggleContext.Provider value={[toggle, setToggle]}>
+        <Navbar />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/watch" element={<Video />}></Route>
+            <Route path="/channel" element={<Channel />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </ToggleContext.Provider >
     </>
   )
 }

@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import { VideoSectionCard } from './VideoSectionCard'
 import { ToggleContext } from '../App'
+import { Link } from 'react-router'
 export const VideoSection = () => {
-    const toggle = useContext(ToggleContext);
+    const [toggle] = useContext(ToggleContext);
     const filters = ["All", "APIs", "Computer Science", "Podcasts", "Music", "Gaming", "Mixes", "Live", "Recruitment", "News", "Stocks", "Ideas", "Property", "Cricket", "Comedy", "Recently Uploaded", "Watched", "Near to you"]
     return (
         <div className="h-[calc(100vh-56px)] overflow-y-scroll overflow-x-hidden flex-1">
@@ -13,7 +14,8 @@ export const VideoSection = () => {
                     })}
                 </div>
             </div>
-            {toggle ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 gap-5">
+            <div className={toggle ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 gap-5 md:scrollbar lg:scrollbar scrollbar-none" : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-5 gap-5 md:scrollbar lg:scrollbar scrollbar-none"}>
+                <Link to="/watch"><VideoSectionCard /></Link>
                 <VideoSectionCard />
                 <VideoSectionCard />
                 <VideoSectionCard />
@@ -30,27 +32,7 @@ export const VideoSection = () => {
                 <VideoSectionCard />
                 <VideoSectionCard />
                 <VideoSectionCard />
-                <VideoSectionCard />
-            </div> : <div className="grid grid-cols-4 p-5 gap-5">
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-                <VideoSectionCard />
-            </div>}
-
+            </div>
         </div>
     )
 }

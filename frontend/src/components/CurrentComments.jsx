@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import banner from '../assets/banner.png'
-export const CurrentComments = () => {
+export const CurrentComments = ({ comment }) => {
     const [liked, setLiked] = useState(false);
     const [count, setCount] = useState(23);
+
     return (
         <div className="flex flex-col gap-2 p-4">
             <div className="flex justify-between items-start">
@@ -17,7 +18,7 @@ export const CurrentComments = () => {
                     <div>
                         <p className="text-sm font-semibold">@ajay_patel_93 <span className="text-xs text-gray-500 ml-1">2 weeks ago</span></p>
                         <p className="text-sm mt-1">
-                            Ritesh is a legend we should learn from him. How to be humble and ground to earth.
+                            {comment}
                         </p>
                     </div>
                 </div>

@@ -6,9 +6,9 @@ import { BiDownload } from 'react-icons/bi';
 import { BsThreeDots } from 'react-icons/bs';
 
 export const VideoRender = () => {
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
     return (
-        <div className=" w-[70%] h-auto flex flex-col gap-2">
+        <div className=" w-full h-auto flex flex-col gap-2">
             <video width="400" className="w-full rounded-xl" controls autoPlay>
                 <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
                 Your Browser does not support the video tag
@@ -16,7 +16,7 @@ export const VideoRender = () => {
             <div className="text-lg font-bold">
                 <p>Build Youtube Clone Using MERN Full Stack | Build Complete Website Like YouTube In MERN 2024</p>
             </div>
-            <div className="flex justify-between">
+            <div className="flex lg:flex-row md:flex-col flex-col lg:justify-between gap-3">
                 <div className="flex gap-2 items-center">
                     <div className="lg:h-10 lg:w-10 md:h-9 md:w-9 h-8 w-8">
                         <img className="h-full w-full rounded-full" src={banner} />
@@ -29,7 +29,7 @@ export const VideoRender = () => {
                         Subscribe
                     </div>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 overflow-auto scrollbar-none">
 
                     <div className="px-3 py-2 h-fit text-white text-md font-semibold rounded-full flex justify-center items-center gap-2 bg-stone-100">
                         <AiOutlineLike className="text-black" />

@@ -3,7 +3,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import banner from '../assets/banner.png'
 export const VideoSuggestionCard = () => {
     return (
-        <div className="flex w-full max-w-md gap-3">
+        <div className="flex w-full gap-3">
             <div>
                 <div className="w-48 h-28 min-w-[192px]">
                     <img
@@ -11,7 +11,6 @@ export const VideoSuggestionCard = () => {
                         alt="thumbnail"
                         className="w-full h-full object-cover rounded-lg"
                     />
-                    {/* <span className="absolute bottom-1 right-1 bg-black text-white text-xs px-1 rounded">9:37</span> */}
                 </div>
             </div>
 

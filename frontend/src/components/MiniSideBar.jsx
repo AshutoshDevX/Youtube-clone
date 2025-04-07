@@ -3,11 +3,12 @@ import { IoMdHome } from "react-icons/io";
 import { SiYoutubeshorts } from "react-icons/si";
 import { MdOutlineSubscriptions } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
-
+import { ToggleContext } from '../App';
+import { useContext } from 'react';
 export const MiniSideBar = () => {
     return (
         <div>
-            <div className="flex flex-col sticky w-20 p-1 h-full box-border">
+            <div className="flex flex-col sticky w-20 p-1 h-full box-border hidden md:block lg:block">
                 <div className="flex flex-col gap-1 bg-white justify-center items-center p-5 rounded-xl hover:bg-stone-100">
                     <IoMdHome className="text-2xl" />
                     <p className="text-[10px]">Home</p>

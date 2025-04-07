@@ -13,7 +13,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import banner from '../assets/banner.png'
 export const Sidebar = () => {
     return (
-        <div className="bg-white flex flex-col w-[15.5%] p-3 pr-0 h-[calc(100vh-56px)] overflow-y-auto overflow-x-hidden scrollbar-thin none">
+        <div className="bg-white flex flex-col w-[15.5%] p-3 pr-0 h-[calc(100vh-56px)] overflow-y-auto overflow-x-hidden scrollbar-thin hidden md:hidden lg:block">
             <div className="w-54 pr-3 pb-3 border-b">
                 <SidebarItem icon={<IoMdHome className="text-2xl" />} title={"Home"} />
                 <SidebarItem icon={<SiYoutubeshorts className="text-2xl" />} title={"Shorts"} />

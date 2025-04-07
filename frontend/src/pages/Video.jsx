@@ -8,7 +8,7 @@ export const Video = () => {
     return (
 
         <div className="py-6 lg:px-20 lg:flex gap-6 md:px-7 px-4">
-            <div className="lg:w-[70%] md:w-full w-full">
+            <div className="lg:w-[70%] md:w-full w-full space-y-3">
                 <VideoRender />
                 <Comments />
             </div>

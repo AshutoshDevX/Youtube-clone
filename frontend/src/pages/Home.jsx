@@ -3,10 +3,12 @@ import { Sidebar } from '../components/Sidebar'
 import { MiniSideBar } from '../components/MiniSideBar'
 import { VideoSection } from '../components/VideoSection'
 import { ToggleContext } from '../App'
+
 export const Home = () => {
-    const toggle = useContext(ToggleContext)
+    const [toggle] = useContext(ToggleContext);
+    console.log(toggle)
     return (
-        <div className="flex">
+        <div className="bg-white flex">
             {toggle ? <Sidebar /> : <MiniSideBar />}
             <VideoSection />
         </div>
