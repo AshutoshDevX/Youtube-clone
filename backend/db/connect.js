@@ -10,7 +10,7 @@ db.on('disconnected', () => {
 })
 
 try {
-    await mongoose.connect("mongodb+srv://admin:Ashutosh123@cluster1.27bkq.mongodb.net/");
+    await mongoose.connect("mongodb+srv://admin:Ashutosh123@cluster1.27bkq.mongodb.net/youtube-clone");
 }
 catch (err) {
     console.log(err);

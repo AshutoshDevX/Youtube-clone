@@ -26,13 +26,13 @@ const user = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        maxLength: 6
+        minLength: 6
     },
     profileUrl: {
         type: String,
     }
 
-}, { timeStamps: true })
+}, { timestamps: true })
 
 const User = mongoose.model("User", user);
 

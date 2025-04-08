@@ -40,7 +40,7 @@ const video = new mongoose.Schema({
         type: Number,
         default: 0
     }
-}, { timeStamps: true })
+}, { timestamps: true })
 
 
 const Video = mongoose.model("Video", video);
