@@ -1,9 +1,8 @@
 import express from 'express';
-
+import './db/connect.js'
 const app = express();
 
 app.get("/", (req, res) => {
-    console.log("Server is running Successfully")
     res.send("First api")
 })
 
