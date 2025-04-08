@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+import 'dotenv/config'
 const db = mongoose.connection
 
 db.on("connected", () => {
@@ -10,7 +10,7 @@ db.on('disconnected', () => {
 })
 
 try {
-    await mongoose.connect("mongodb+srv://admin:Ashutosh123@cluster1.27bkq.mongodb.net/youtube-clone");
+    await mongoose.connect(process.env.database);
 }
 catch (err) {
     console.log(err);

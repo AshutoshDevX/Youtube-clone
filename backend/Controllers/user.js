@@ -2,7 +2,7 @@ import User from "../Models/user.js";
 import { z } from 'zod';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-
+import 'dotenv/config'
 
 const signUpBody = z.object({
     channelName: z.string(),
@@ -50,7 +50,7 @@ export const userSignUp = async (req, res) => {
 
         const token = jwt.sign({
             userId
-        }, "mySecret", { expiresIn: "1d" });
+        }, process.env.SECRET_KEY, { expiresIn: "1d" });
 
 
         res.status(200).json({
@@ -85,7 +85,7 @@ export const userSignIn = async (req, res) => {
 
         if (user && await bcrypt.compare(password, user.password)) {
             const userId = user._id;
-            const token = jwt.sign({ userId }, "mySecret", { expiresIn: "1d" });
+            const token = jwt.sign({ userId }, process.env.SECRET_KEY, { expiresIn: "1d" });
             res.json({
                 token: token
             })
