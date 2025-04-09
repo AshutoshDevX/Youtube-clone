@@ -24,6 +24,8 @@ const cookieOptions = {
     sameSite: "Lax"
 }
 
+
+
 export const userSignUp = async (req, res) => {
     try {
         const { channelName, name, userName, password, profileUrl } = req.body;
@@ -44,6 +46,8 @@ export const userSignUp = async (req, res) => {
         }
 
         const hashPass = await bcrypt.hash(password, 10);
+
+
         const user = await User.create({
             channelName,
             name,
