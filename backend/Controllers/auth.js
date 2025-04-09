@@ -1,22 +1,24 @@
+import "dotenv/config"
+import jwt from 'jsonwebtoken'
 export const auth = (req, res, next) => {
-    const authHeader = req.headers['authorization'];
+    const token = req.cookies.token;
 
-    if (!authHeader || !authHeader.startsWith("Bearer")) {
+    if (!token) {
         return res.status(403).json({
-            msg: "Forbidden"
+            msg: "you don't have permission to access this resource"
         });
     }
 
-    const token = authHeader.split(" ")[1];
-
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
         req.userId = decoded.userId;
         next();
     }
     catch (err) {
+        console.log(err)
         return res.status(403).json({
-            msg: "Forbidden"
+
+            msg: "you don't have permission to access this resource"
         })
     }
 }

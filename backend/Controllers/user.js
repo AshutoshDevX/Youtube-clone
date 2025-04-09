@@ -2,7 +2,8 @@ import User from "../Models/user.js";
 import { z } from 'zod';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import 'dotenv/config'
+import 'dotenv/config';
+
 
 const signUpBody = z.object({
     channelName: z.string(),
@@ -16,6 +17,12 @@ const signInBody = z.object({
     userName: z.string().email(),
     password: z.string()
 })
+
+const cookieOptions = {
+    httpOnly: true,
+    secure: false,
+    sameSite: "Lax"
+}
 
 export const userSignUp = async (req, res) => {
     try {
@@ -86,10 +93,14 @@ export const userSignIn = async (req, res) => {
         if (user && await bcrypt.compare(password, user.password)) {
             const userId = user._id;
             const token = jwt.sign({ userId }, process.env.SECRET_KEY, { expiresIn: "1d" });
+
+            res.cookie('token', token, cookieOptions);
+
             res.json({
+                msg: "Logged in Successfully",
                 token: token
             })
-            return;
+
         }
         else {
             res.status(400).json({
@@ -104,3 +115,6 @@ export const userSignIn = async (req, res) => {
     }
 }
 
+export const userLogout = (req, res) => {
+    res.clearCookie('token', cookieOptions).json({ msg: "Signed out successfully" });
+}
