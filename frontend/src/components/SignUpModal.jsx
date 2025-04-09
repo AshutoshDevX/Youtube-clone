@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export const SignUpModal = ({ setIsLogin, setIsActive, setIsToken }) => {
     const [uploadedImgUrl, setUploadedImgUrl] = useState(profile)
-    const [inputField, setInputField] = useState({ name: "", email: "", password: "", file: "" })
+    const [inputField, setInputField] = useState({ channelName: "", name: "", userName: "", password: "", profileUrl: "" })
 
 
     const handleChange = (e) => {
@@ -56,6 +56,14 @@ export const SignUpModal = ({ setIsLogin, setIsActive, setIsToken }) => {
             </p>
 
             <div className="flex flex-col gap-4">
+                <input
+                    onChange={handleChange}
+                    value={inputField.channelName}
+                    name="channelName"
+                    type="text"
+                    placeholder="channelName"
+                    className="bg-[#2d2d2d] text-sm px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
+                />
                 <input
                     onChange={handleChange}
                     value={inputField.name}
