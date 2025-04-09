@@ -1,22 +1,29 @@
-import React from 'react'
-import Banner from '../assets/banner.png'
+import React, { useState } from 'react'
 import { HiOutlineDotsVertical } from "react-icons/hi";
-export const VideoSectionCard = () => {
+import { relativeTime } from '../utils/util';
+
+
+export const VideoSectionCard = ({ thumbnailUrl, userId, title, createdAt, views, videoUrl }) => {
+    const [videoViews, setViews] = useState(views);
+    const relativePeriod = relativeTime(createdAt);
     return (
-        <div className="flex flex-col h-fit gap-2">
+        <div
+            onClick={() => {
+                setViews(views + 1);
+            }}
+            className="flex flex-col h-fit gap-2">
             <div>
-                <img className="rounded-xl" src={Banner} />
+                <img className="rounded-xl w-full h-full" src={thumbnailUrl} />
             </div>
             <div className="flex gap-3">
                 <div className="lg:h-10 lg:w-10 md:h-9 md:w-9 h-8 w-8">
-                    <img className="h-full w-full rounded-full" src={Banner} />
+                    <img className="h-full w-full rounded-full" src={userId.profileUrl} />
                 </div>
                 <div className="flex flex-col flex-1">
-                    <div className="font-semibold h-12 overflow-hidden"><p>Build YouTube Clone Using Mern Stack | Build Complete website like youtube</p></div>
-                    <div className="text-sm mt-1 text-gray-800"><p>Coding Guru</p></div>
+                    <div className="font-semibold h-12 overflow-hidden"><p>{title}</p></div>
                     <div className="flex text-sm gap-2 text-gray-800">
-                        <div>16k views</div>
-                        <div>6 months ago</div>
+                        <div>{videoViews} views</div>
+                        <div>{relativePeriod}</div>
                     </div>
                 </div>
                 <div>
