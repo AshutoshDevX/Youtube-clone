@@ -1,6 +1,6 @@
 
-export const relativeTime = ({ formattedDate }) => {
-    const formattedDate = "2025-04-09T16:47:29.897Z";
+export const relativeTime = (date) => {
+    const formattedDate = date;
 
     // Convert the date string to a Date object
     const dateObject = new Date(formattedDate);
