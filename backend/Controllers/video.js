@@ -10,7 +10,7 @@ const videoBody = z.object({
 })
 export const uploadVideo = async (req, res) => {
     try {
-        const { title, description, videoUrl, thumbnailUrl, tags, like, dislike } = req.body;
+        const { title, description, videoUrl, thumbnailUrl, tags, like, dislike, views } = req.body;
 
         const { success } = videoBody.safeParse(req.body);
 
@@ -29,7 +29,8 @@ export const uploadVideo = async (req, res) => {
             thumbnailUrl,
             tags,
             like,
-            dislike
+            dislike,
+            views
         })
 
 
