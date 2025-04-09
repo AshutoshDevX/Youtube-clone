@@ -56,6 +56,7 @@ export const getAllVideo = async (req, res) => {
         const allVideos = await Video.find().populate('userId', "channelName profileUrl userName createdAt")
 
         res.status(200).json({
+            success: true,
             allVideos
         })
     }
