@@ -2,21 +2,23 @@ import React, { useState } from 'react'
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import banner from '../assets/banner.png'
-export const CurrentComments = ({ comment }) => {
+import { relativeTime } from '../utils/util';
+export const CurrentComments = ({ comment, userId, createdAt }) => {
     const [liked, setLiked] = useState(false);
     const [count, setCount] = useState(23);
 
+    const relativePeriod = relativeTime(createdAt);
     return (
         <div className="flex flex-col gap-2 p-4">
             <div className="flex justify-between items-start">
                 <div className="flex gap-3">
                     <img
-                        src={banner}
+                        src={userId.profileUrl}
                         alt="profile"
                         className="w-9 h-9 rounded-full object-cover"
                     />
                     <div>
-                        <p className="text-sm font-semibold">@ajay_patel_93 <span className="text-xs text-gray-500 ml-1">2 weeks ago</span></p>
+                        <p className="text-sm font-semibold">@{userId.name} <span className="text-xs text-gray-500 ml-1">{relativePeriod}</span></p>
                         <p className="text-sm mt-1">
                             {comment}
                         </p>

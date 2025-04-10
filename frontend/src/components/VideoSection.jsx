@@ -15,7 +15,6 @@ export const VideoSection = () => {
             console.log(err)
         })
     }, [])
-    console.log(videoData)
     const [toggle] = useContext(ToggleContext);
     const filters = ["All", "APIs", "Computer Science", "Podcasts", "Music", "Gaming", "Mixes", "Live", "Recruitment", "News", "Stocks", "Ideas", "Property", "Cricket", "Comedy", "Recently Uploaded", "Watched", "Near to you"]
     return (
@@ -29,8 +28,8 @@ export const VideoSection = () => {
             </div>
             <div className={toggle ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 gap-5 md:scrollbar lg:scrollbar scrollbar-none" : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-5 gap-5 md:scrollbar lg:scrollbar scrollbar-none"}>
                 {
-                    videoData.map(({ thumbnailUrl, title, userId, createdAt, views, videoUrl }) => {
-                        return <Link to="/watch"><VideoSectionCard thumbnailUrl={thumbnailUrl} title={title} userId={userId} createdAt={createdAt} views={views} videoUrl={videoUrl} /></Link>
+                    videoData.map(({ thumbnailUrl, title, userId, createdAt, views, videoUrl, _id }) => {
+                        return <Link to={`/watch/${_id}`}><VideoSectionCard key={_id} thumbnailUrl={thumbnailUrl} title={title} userId={userId} createdAt={createdAt} views={views} videoUrl={videoUrl} /></Link>
                     })
                 }
 

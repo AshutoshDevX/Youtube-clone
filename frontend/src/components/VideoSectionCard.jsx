@@ -3,7 +3,7 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { relativeTime } from '../utils/util';
 
 
-export const VideoSectionCard = ({ thumbnailUrl, userId, title, createdAt, views, videoUrl }) => {
+export const VideoSectionCard = ({ thumbnailUrl, userId, title, createdAt, views }) => {
     const [videoViews, setViews] = useState(views);
     const relativePeriod = relativeTime(createdAt);
     return (

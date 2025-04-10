@@ -19,7 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/watch/:id" element={<Video />}></Route>
-            <Route path="/channel" element={<Channel />}></Route>
+            <Route path="/channel:id" element={<Channel />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
         </BrowserRouter>
