@@ -16,9 +16,7 @@ export const Comments = ({ videoId }) => {
             }).catch((err) => {
                 console.log(err);
             })
-    }, [])
-
-    console.log(comments)
+    }, [videoId])
 
     return (
         <div className="space-y-6  w-full h-auto mt-2">

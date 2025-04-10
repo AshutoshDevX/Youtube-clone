@@ -6,7 +6,7 @@ import { useState } from "react"
 import { createContext } from "react"
 import { Channel } from "./pages/Channel"
 import { NotFound } from "./components/NotFound"
-import { BrowserRouter, Routes, Route } from "react-router"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 export const ToggleContext = createContext([]);
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/watch/:id" element={<Video />}></Route>
-            <Route path="/channel:id" element={<Channel />}></Route>
+            <Route path="/channel/:id" element={<Channel />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
         </BrowserRouter>

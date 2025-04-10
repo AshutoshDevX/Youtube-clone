@@ -20,7 +20,7 @@ export const VideoSuggestionCard = ({ userId, thumbnailUrl, title, createdAt, vi
                     <p className="text-sm font-semibold leading-tight">
                         {title}
                     </p>
-                    <BsThreeDotsVertical className="text-gray-800 cursor-pointer text-3xl" />
+                    <BsThreeDotsVertical className="text-gray-800 cursor-pointer text-lg" />
                 </div>
                 <div className="flex items-center gap-1 mt-1">
                     <span className="text-sm text-gray-700">{userId.name}</span>

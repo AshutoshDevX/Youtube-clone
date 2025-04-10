@@ -3,11 +3,12 @@ import { VideoRender } from '../components/VideoRender';
 import { Comments } from '../components/Comments';
 import { VideoSuggestion } from '../components/VideoSuggestion';
 import axios from 'axios';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 
 export const Video = () => {
     const filters = ["All", "Related", "For you", "Recently uploaded", "Watched", "Programming", "Javascript"]
     const { id } = useParams();
+    console.log(id)
     const [videoData, setVideoData] = useState(null);
 
     useEffect(() => {
@@ -17,7 +18,7 @@ export const Video = () => {
             }).catch((err) => {
                 console.log(err);
             })
-    }, [])
+    }, [id])
 
     return (
         <>
@@ -29,8 +30,8 @@ export const Video = () => {
                 <div className="lg:w-[30%] space-y-5 md:w-full w-full">
                     <div className="bg-white">
                         <div className="flex gap-3 py-2 w-[100vw-16px]  overflow-x-scroll scrollbar-none">
-                            {filters.map((item) => {
-                                return <p className="whitespace-nowrap px-3 py-1 w-fit h-fit rounded-md text-sm font-semibold bg-stone-100">{item}</p>
+                            {filters.map((item, index) => {
+                                return <p key={index} className="whitespace-nowrap px-3 py-1 w-fit h-fit rounded-md text-sm font-semibold bg-stone-100">{item}</p>
                             })}
                         </div>
                     </div>

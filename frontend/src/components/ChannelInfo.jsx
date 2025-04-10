@@ -3,7 +3,7 @@ import banner from '../assets/banner.png'
 import { FaPlay } from "react-icons/fa";
 import { ToggleContext } from '../App';
 import { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { VideoSectionCard } from './VideoSectionCard';
 export const ChannelInfo = () => {
     const [toggle] = useContext(ToggleContext);

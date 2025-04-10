@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { VideoSuggestionCard } from './VideoSuggestionCard'
 import axios from 'axios'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export const VideoSuggestion = ({ videoId }) => {
-    console.log(videoId)
-    const [data, setData] = useState([])
+    const [data, setData] = useState(null)
     useEffect(() => {
         axios.get("http://localhost:3000/api/video")
             .then((response) => {
@@ -13,14 +12,14 @@ export const VideoSuggestion = ({ videoId }) => {
             }).catch((err) => {
                 console.log(err);
             })
-    }, [])
+    }, [videoId])
     return (
         <>
             {data && <div className="flex flex-col gap-2">
                 {data.filter((item) => {
                     return item._id != videoId
                 }).map(({ _id, userId, thumbnailUrl, title, views, createdAt }) => {
-                    return <Link to={`/watch/${_id}`}><VideoSuggestionCard key={_id} userId={userId} thumbnailUrl={thumbnailUrl} title={title} views={views} createdAt={createdAt} /></Link>
+                    return <Link key={_id} to={`../${_id}`} relative="path"><VideoSuggestionCard userId={userId} thumbnailUrl={thumbnailUrl} title={title} views={views} createdAt={createdAt} /></Link>
                 })}
             </div>}
         </>

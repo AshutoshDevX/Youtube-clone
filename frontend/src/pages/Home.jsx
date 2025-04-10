@@ -6,7 +6,6 @@ import { ToggleContext } from '../App'
 
 export const Home = () => {
     const [toggle] = useContext(ToggleContext);
-    console.log(toggle)
     return (
         <div className="bg-white flex">
             {toggle ? <Sidebar /> : <MiniSideBar />}
