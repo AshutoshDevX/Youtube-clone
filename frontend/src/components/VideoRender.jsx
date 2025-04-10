@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 export const VideoRender = ({ createdAt, videoUrl, userId, description, title, like, dislike, views }) => {
     const relativePeriod = relativeTime(createdAt);
     const [isActive, setIsActive] = useState(false);
-    console.log(videoUrl)
+
     return (
         <div className=" w-full h-auto flex flex-col gap-2">
-            <video width="400" className="w-full rounded-xl" controls autoPlay>
+            {videoUrl && <video width="400" className="w-full rounded-xl" controls loop autoPlay>
                 <source src={videoUrl} type="video/mp4" />
                 Your Browser does not support the video tag
-            </video>
+            </video>}
             <div className="text-lg font-bold">
                 <p>{title}</p>
             </div>

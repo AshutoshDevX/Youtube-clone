@@ -19,7 +19,7 @@ export const VideoSuggestion = ({ videoId }) => {
                 {data.filter((item) => {
                     return item._id != videoId
                 }).map(({ _id, userId, thumbnailUrl, title, views, createdAt }) => {
-                    return <Link key={_id} to={`../${_id}`} relative="path"><VideoSuggestionCard userId={userId} thumbnailUrl={thumbnailUrl} title={title} views={views} createdAt={createdAt} /></Link>
+                    return <Link key={_id} to={`/watch/${_id}`}><VideoSuggestionCard userId={userId} thumbnailUrl={thumbnailUrl} title={title} views={views} createdAt={createdAt} /></Link>
                 })}
             </div>}
         </>

@@ -14,8 +14,8 @@ function App() {
   return (
     <>
       <ToggleContext.Provider value={[toggle, setToggle]}>
-        <Navbar />
         <BrowserRouter>
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/watch/:id" element={<Video />}></Route>

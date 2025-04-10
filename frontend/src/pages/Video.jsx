@@ -8,9 +8,9 @@ import { useParams } from 'react-router-dom';
 export const Video = () => {
     const filters = ["All", "Related", "For you", "Recently uploaded", "Watched", "Programming", "Javascript"]
     const { id } = useParams();
-    console.log(id)
-    const [videoData, setVideoData] = useState(null);
 
+    const [videoData, setVideoData] = useState(null);
+    console.log(videoData)
     useEffect(() => {
         axios.get(`http://localhost:3000/api/video/${id}`)
             .then((response) => {
