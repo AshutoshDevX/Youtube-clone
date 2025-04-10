@@ -34,7 +34,7 @@ export const Video = () => {
                             })}
                         </div>
                     </div>
-                    <VideoSuggestion thumbnailUrl={videoData.thumbnailUrl} title={videoData.title} views={videoData.views} createdAt={videoData.createdAt} />
+                    <VideoSuggestion videoId={videoData._id} />
                 </div>
             </div>}
         </>
