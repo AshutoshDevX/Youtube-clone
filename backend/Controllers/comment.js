@@ -22,7 +22,7 @@ export const addComment = async (req, res) => {
 export const getComment = async (req, res) => {
     try {
         const id = req.params.id;
-        const comments = await Comments.find({ videoId: id }).populate("userId", "profileUrl channelName userName");
+        const comments = await Comments.find({ videoId: id }).populate("userId", "profileUrl channelName userName name");
         res.json({
             comments
         })

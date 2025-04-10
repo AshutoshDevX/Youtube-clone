@@ -54,7 +54,7 @@ export const uploadVideo = async (req, res) => {
 export const getAllVideo = async (req, res) => {
 
     try {
-        const allVideos = await Video.find().populate('userId', "channelName profileUrl userName createdAt")
+        const allVideos = await Video.find().populate('userId', "channelName profileUrl userName createdAt name")
 
         res.status(200).json({
             success: true,
@@ -75,7 +75,7 @@ export const getVideo = async (req, res) => {
     try {
         const videoId = req.params.id;
 
-        const video = await Video.findById(videoId).populate("userId", "channelName profileUrl userName createdAt")
+        const video = await Video.findById(videoId).populate("userId", "channelName profileUrl userName createdAt name")
         res.json({
             success: true,
             video
@@ -90,7 +90,7 @@ export const getVideo = async (req, res) => {
 export const getAllVideosByUserId = async (req, res) => {
     try {
         let userId = req.params.id;
-        const video = await Video.find({ userId }).populate("userId", "channelName profileUrl userName createdAt");
+        const video = await Video.find({ userId }).populate("userId", "channelName profileUrl createdAt name");
         res.json({
             success: "true",
             video

@@ -10,7 +10,6 @@ export const Video = () => {
     const { id } = useParams();
 
     const [videoData, setVideoData] = useState(null);
-    console.log(videoData)
     useEffect(() => {
         axios.get(`http://localhost:3000/api/video/${id}`)
             .then((response) => {
