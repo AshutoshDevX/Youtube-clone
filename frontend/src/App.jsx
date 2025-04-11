@@ -7,13 +7,14 @@ import { createContext } from "react"
 import { Channel } from "./pages/Channel"
 import { NotFound } from "./components/NotFound"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-export const ToggleContext = createContext([]);
+export const SetContext = createContext();
 
 function App() {
   const [toggle, setToggle] = useState(true);
+  const [inputSearch, setInputSearch] = useState("");
   return (
     <>
-      <ToggleContext.Provider value={[toggle, setToggle]}>
+      <SetContext.Provider value={{ toggle, setToggle, inputSearch, setInputSearch }}>
         <BrowserRouter>
           <Navbar />
           <Routes>
@@ -23,7 +24,7 @@ function App() {
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
         </BrowserRouter>
-      </ToggleContext.Provider >
+      </SetContext.Provider >
     </>
   )
 }
