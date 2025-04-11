@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import banner from '../assets/banner.png'
 import { FaPlay } from "react-icons/fa";
-import { ToggleContext } from '../App';
+import { SetContext } from '../App';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { VideoSectionCard } from './VideoSectionCard';
@@ -17,7 +16,7 @@ export const ChannelInfo = ({ id }) => {
                 console.log(err)
             })
     }, [])
-    const [toggle] = useContext(ToggleContext);
+    const { toggle } = useContext(SetContext);
     return (
         <>
             {userVideos && <div className="p-5 space-y-4 flex-1 h-[calc(100vh-56px)] overflow-y-scroll overflow-x-hidden">
