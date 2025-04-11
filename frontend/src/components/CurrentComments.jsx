@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { BsThreeDotsVertical } from 'react-icons/bs';
-import banner from '../assets/banner.png'
 import { relativeTime } from '../utils/util';
 export const CurrentComments = ({ comment, userId, createdAt }) => {
     const [liked, setLiked] = useState(false);

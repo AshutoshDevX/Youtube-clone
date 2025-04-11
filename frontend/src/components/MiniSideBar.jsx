@@ -3,8 +3,6 @@ import { IoMdHome } from "react-icons/io";
 import { SiYoutubeshorts } from "react-icons/si";
 import { MdOutlineSubscriptions } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
-import { ToggleContext } from '../App';
-import { useContext } from 'react';
 export const MiniSideBar = () => {
     return (
         <div>
